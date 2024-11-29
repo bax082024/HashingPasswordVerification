@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "HashingPasswordVerification": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
