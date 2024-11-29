@@ -8,44 +8,13 @@ namespace HashingDemo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Hashing Demo Compare two strings!");
+            Console.WriteLine("Welcome to the Password Hashing Demo.");
 
-            // First string to compute
-            Console.Write("Enter first string to hash: ");
-            string? input1 = Console.ReadLine();
-            if (string.IsNullOrEmpty(input1))
-            {
-                Console.WriteLine("Invalid input! please enter a valid string");
-                return;
-            }
-            string hash1 = ComputeSHA256Hash(input1);
-
-            // Second string to compute
-            Console.WriteLine("Enter second string to compute");
-            string? input2 = Console.ReadLine();
-            if (string.IsNullOrEmpty(input2))
-            {
-                Console.WriteLine("Invalid input! please enter a valid string!");
-                return;
-            }
-            string hash2 = ComputeSHA256Hash(input2);
-
-            Console.WriteLine($"\nHash 1: {hash1}");
-            Console.WriteLine($"Hash 2: {hash2}");
-
-            // Comapre hashes
-            if (hash1 == hash2)
-            {
-                Console.WriteLine("The hashes are identical. The strings are the same.");
-            }
-            else
-            {
-                {
-                    Console.WriteLine("The hashes are different. The strings are not the same.");
-                }
-
-
-            }
+            // Hash and store password 
+            Console.Write("Set a password: ");
+            string password = Console.ReadLine();
+            string storedHash = HashPassword(password);
+            Console.WriteLine("Password has been hashed and stored.");  
 
             static string ComputeSHA256Hash(string input)
             {
