@@ -20,7 +20,8 @@ namespace HashingDemo
             Console.Write("Enter password to verify: ");
             string? inputPassword = GetValidInput();
 
-            if (VerifyPassword(storedHash, inputPassword))
+            if (VerifyPassword(inputPassword, storedHash)) 
+
             {
                 Console.WriteLine("Password is correct!");
 
@@ -56,7 +57,7 @@ namespace HashingDemo
         {
             while (true)
             {
-                string? input = Console.ReadLine();
+                string? input = Console.ReadLine()?.Trim();
                 if (!string.IsNullOrEmpty(input))
                 {
                     return input;
@@ -68,14 +69,18 @@ namespace HashingDemo
         // Hash password for storage
         static string HashPassword(string password)
         {
-            return ComputeSHA256Hash(password);
-
+            return ComputeSHA256Hash(password.ToLower()); 
         }
 
         // Verify password by comparing hash to stored hash
         static bool VerifyPassword(string inputPassword, string storedHash)
         {
-            string hashInput = ComputeSHA256Hash(inputPassword);
+            string hashInput = ComputeSHA256Hash(inputPassword.ToLower());
+
+            
+            Console.WriteLine($"Stored Hash: {storedHash}");
+            Console.WriteLine($"Input Hash: {hashInput}");
+
             return hashInput == storedHash;
         }
     }
