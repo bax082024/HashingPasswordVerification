@@ -68,11 +68,20 @@ namespace HashingDemo
 
             }
 
+            // Hash password for storage
             static string HashPassword(string password)
             {
                 return ComputeSHA256Hash(password);
 
             }
+
+            // Verify password by comparing hash to stored hash
+            static bool VerifyPassword(string inputPassword, string storedHash)
+            {
+                string hashInput = ComputeSHA256Hash(inputPassword);
+                return hashInput == storedHash;
+            }
+
         }
 
     }
