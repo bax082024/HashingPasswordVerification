@@ -12,9 +12,26 @@ namespace HashingDemo
 
             // Hash and store password 
             Console.Write("Set a password: ");
-            string password = Console.ReadLine();
+            string? password = Console.ReadLine();
             string storedHash = HashPassword(password);
-            Console.WriteLine("Password has been hashed and stored.");  
+            Console.WriteLine("Password has been hashed and stored.");
+
+            // Verify password 
+            Console.Write("Enter password to verify: ");
+            string inputPassword = Console.ReadLine();
+
+            if (VerifyPassword(storedHash, inputPassword))
+            {
+                Console.WriteLine("Password is correct!");
+
+            }
+            else
+            {
+                Console.WriteLine("Incorrect Password!");
+            }
+
+
+
 
             static string ComputeSHA256Hash(string input)
             {
